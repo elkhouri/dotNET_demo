@@ -25,6 +25,7 @@ namespace dotNET_demo
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
+                      "~/Content/flat-ui.css",
                       "~/Content/site.css"));
         }
     }
