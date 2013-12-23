@@ -16,6 +16,9 @@ namespace dotNET_demo
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            var config = new dotNET_demo.Migrations.Configuration();
+            var migrator = new System.Data.Entity.Migrations.DbMigrator(config);
+            migrator.Update();
         }
     }
 }
