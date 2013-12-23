@@ -22,6 +22,9 @@ namespace dotNET_demo.Models
 
         [Display(Name = "In Stock")]
         public bool InStock { get; set; }
+
+        [Display(Name = "Available Date")]
+        [DataType(DataType.Date)]
         public DateTime Available_Date { get; set; }
     }
 }

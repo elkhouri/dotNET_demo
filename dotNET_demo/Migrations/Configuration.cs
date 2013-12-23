@@ -18,11 +18,16 @@ namespace dotNET_demo.Migrations
         }
         public static class a
         {
+            
             public class ProductBuilder : FluentBuilder<Product>
             {
                 public ProductBuilder()
                 {
-
+                    var g = new NLipsum.Core.LipsumGenerator();
+                    SetProperty(x => x.Description, g.GenerateSentences(1).First());
+                    SetProperty(x => x.Manufacturer, g.RandomWord());
+                    SetProperty(x => x.Size, ARandom.Float().ToString());
+                    SetProperty(x => x.InStock, ARandom.Boolean());
                 }
 
                 public ProductBuilder ForProduct(string name)
