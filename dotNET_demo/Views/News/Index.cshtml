@@ -1,45 +1,29 @@
 ﻿@model IEnumerable<dotNET_demo.Models.News>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "News";
 }
 
-<h2>Index</h2>
+<h2>@ViewBag.Title</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Content)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TimeStamp)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
+@foreach (var item in Model)
+{
+    <div class="row">
+        <div class="col-sm-offset-3 col-sm-6">
+            <h4 class="text-center">@Html.DisplayFor(modelItem => item.Title)</h4>
             @Html.DisplayFor(modelItem => item.Content)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TimeStamp)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-        </td>
-    </tr>
+            
+            <p class="text-muted">Published: @Html.DisplayFor(modelItem => item.TimeStamp)</p>
+
+            @Html.ActionLink("Edit", "Edit", new { id = item.ID })
+            @Html.ActionLink("Details", "Details", new { id = item.ID })
+            @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+            <hr />
+        </div>
+    </div>
 }
 
-</table>
