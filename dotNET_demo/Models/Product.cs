@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -14,9 +15,13 @@ namespace dotNET_demo.Models
         public string Size { get; set; }
         public int Weight {get;set;}
         public string Manufacturer { get; set; }
+        
+        [DataType(DataType.Currency)]    
         public int Price { get; set; }
         public int Unit { get; set; }
-        public bool Stock { get; set; }
+
+        [Display(Name = "In Stock")]
+        public bool InStock { get; set; }
         public DateTime Available_Date { get; set; }
     }
 }
