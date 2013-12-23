@@ -1,6 +1,8 @@
 namespace dotNET_demo.Migrations
 {
     using dotNET_demo.Models;
+    using Fluency;
+    using Fluency.DataGeneration;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -11,23 +13,36 @@ namespace dotNET_demo.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
-            AutomaticMigrationDataLossAllowed = true;
         }
+        public static class a
+        {
+            public static ProductBuilder Config
+            {
+                get { return new ProductBuilder(); }
+            }
+        }
+        public class ProductBuilder : FluentBuilder< Product >
+        {
+            public ProductBuilder()
+            {
 
+            }
+
+            public ProductBuilder ForProduct(string name)
+            {
+                SetProperty(x => x.Name, name);
+                return this;
+            }
+        }
         protected override void Seed(dotNET_demo.Models.ApplicationDbContext context)
         {
-            //  This method will be called after migrating to the latest version.
-
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
+            
+            context.Products.AddOrUpdate(p => p.Name,
+                new Product { Name = "TEST", Weight=5, Price=5, Size="1", Stock=false, Available_Date=DateTime.Now},
+                a.Config.ForProduct("Product 1").build(),
+                a.Config.ForProduct("Product 2").build(),
+                a.Config.ForProduct("Product 3").build()
+            );
         }
     }
 }
