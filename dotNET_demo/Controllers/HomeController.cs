@@ -23,6 +23,14 @@ namespace dotNET_demo.Controllers
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
+            
+
+            return View();
+        }
+
+        public ActionResult Privacy()
+        {
+            ViewBag.Message = "Privacy page";
 
             return View();
         }

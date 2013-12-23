@@ -20,7 +20,6 @@
                 @Html.ActionLink("Demo Site", "Index", "Home", null, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
-               @Html.Partial("_LoginPartial")
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Products", "Index", "Products")</li>
                     <li>@Html.ActionLink("News", "Index", "News")</li>
@@ -34,6 +33,7 @@
                         </ul>
                     </li>
                 </ul>
+                @Html.Partial("_LoginPartial")
             </div>
         </div>
     </div>

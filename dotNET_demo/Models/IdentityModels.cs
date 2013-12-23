@@ -13,5 +13,9 @@ namespace dotNET_demo.Models
             : base("DefaultConnection")
         {
         }
+
+        public System.Data.Entity.DbSet<dotNET_demo.Models.Product> Products { get; set; }
+
+        public System.Data.Entity.DbSet<dotNET_demo.Models.News> News { get; set; }
     }
 }

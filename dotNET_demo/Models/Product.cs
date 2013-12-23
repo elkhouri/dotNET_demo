@@ -7,5 +7,16 @@ namespace dotNET_demo.Models
 {
     public class Product
     {
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public string Serial { get; set; }
+        public string Description { get; set; }
+        public string Size { get; set; }
+        public int Weight {get;set;}
+        public string Manufacturer { get; set; }
+        public int Price { get; set; }
+        public int Unit { get; set; }
+        public bool Stock { get; set; }
+        public DateTime Available_Date { get; set; }
     }
 }
