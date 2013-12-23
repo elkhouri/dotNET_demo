@@ -1,5 +1,6 @@
 namespace dotNET_demo.Migrations
 {
+    using dotNET_demo.Models;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -10,7 +11,7 @@ namespace dotNET_demo.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
-            ContextKey = "dotNET_demo.Models.ApplicationDbContext";
+            AutomaticMigrationDataLossAllowed = true;
         }
 
         protected override void Seed(dotNET_demo.Models.ApplicationDbContext context)
