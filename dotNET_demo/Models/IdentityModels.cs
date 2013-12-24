@@ -6,7 +6,10 @@ namespace dotNET_demo.Models
     public class ApplicationUser : IdentityUser
     {
     }
+    public class Role : IdentityRole
+    {
 
+    }
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
